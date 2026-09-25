@@ -1,0 +1,86 @@
+/* ==========================================================
+   ContextForge Brand Skin
+   Imported once from App.tsx
+========================================================== */
+
+.cf-sidebar-logo,
+.cf-dashboard-loading-logo,
+.cf-ai-avatar,
+.analytics-logo,
+.documents-logo,
+.cf-documents-logo,
+.cf-login-logo,
+.cf-auth-logo,
+.auth-logo,
+.login-logo,
+.cf-login-brand-icon,
+.cf-auth-brand-icon,
+.auth-brand-icon,
+.login-brand-icon {
+  position: relative;
+  overflow: hidden;
+  font-size: 0 !important;
+  color: transparent !important;
+  background-image: url("/contextforge-icon.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+}
+
+/* Keep the new neon mark elegant in light mode. */
+[data-theme="light"] .cf-sidebar-logo,
+[data-theme="light"] .cf-dashboard-loading-logo,
+[data-theme="light"] .cf-ai-avatar,
+[data-theme="light"] .analytics-logo,
+[data-theme="light"] .documents-logo,
+[data-theme="light"] .cf-documents-logo,
+[data-theme="light"] .cf-login-logo,
+[data-theme="light"] .cf-auth-logo,
+[data-theme="light"] .auth-logo,
+[data-theme="light"] .login-logo,
+[data-theme="light"] .cf-login-brand-icon,
+[data-theme="light"] .cf-auth-brand-icon,
+[data-theme="light"] .auth-brand-icon,
+[data-theme="light"] .login-brand-icon {
+  border-color: rgba(96, 101, 255, 0.16) !important;
+  box-shadow:
+    0 8px 20px rgba(67, 76, 150, 0.10),
+    0 0 0 1px rgba(255, 255, 255, 0.72) inset !important;
+}
+
+/* Dark mode gets a soft halo, not an aggressive neon glow. */
+[data-theme="dark"] .cf-sidebar-logo,
+[data-theme="dark"] .cf-dashboard-loading-logo,
+[data-theme="dark"] .cf-ai-avatar,
+[data-theme="dark"] .analytics-logo,
+[data-theme="dark"] .documents-logo,
+[data-theme="dark"] .cf-documents-logo,
+[data-theme="dark"] .cf-login-logo,
+[data-theme="dark"] .cf-auth-logo,
+[data-theme="dark"] .auth-logo,
+[data-theme="dark"] .login-logo,
+[data-theme="dark"] .cf-login-brand-icon,
+[data-theme="dark"] .cf-auth-brand-icon,
+[data-theme="dark"] .auth-brand-icon,
+[data-theme="dark"] .login-brand-icon {
+  border-color: rgba(109, 111, 255, 0.32) !important;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.24),
+    0 0 18px rgba(76, 112, 255, 0.18) !important;
+}
+
+/* Assistant message avatar */
+.cf-ai-avatar {
+  border-radius: 11px !important;
+  box-shadow:
+    0 5px 16px rgba(70, 80, 160, 0.12) !important;
+}
+
+/* Fallback for pages using plain brand tiles. */
+[data-contextforge-brand="icon"] {
+  background:
+    url("/contextforge-icon.png")
+    center / cover no-repeat !important;
+  color: transparent !important;
+  overflow: hidden;
+}

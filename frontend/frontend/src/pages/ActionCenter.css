@@ -1,0 +1,934 @@
+/* ==========================================================
+   ContextForge Action Center
+========================================================== */
+
+.cf-action-center .cf-sidebar {
+  overflow: hidden;
+}
+
+
+.cf-action-sidebar-summary {
+  margin-top: 28px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel-soft);
+}
+
+
+.cf-action-sidebar-summary span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+.cf-action-sidebar-summary strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--primary);
+  font-size: 34px;
+  line-height: 1;
+}
+
+
+.cf-action-sidebar-summary p {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+
+.cf-action-center .cf-sidebar-footer {
+  margin-top: auto;
+}
+
+
+/* ==========================================================
+   Header
+========================================================== */
+
+.cf-action-center .cf-action-workspace {
+  overflow: hidden;
+}
+
+
+.cf-action-center .cf-action-header {
+  position: relative;
+  inset: auto;
+  z-index: 20;
+  min-height: 104px;
+  transform: none;
+  transition: none;
+  box-shadow: none;
+}
+
+
+.cf-action-center .cf-action-header:hover,
+.cf-action-center .cf-action-header:focus-within {
+  transform: none;
+  box-shadow: none;
+}
+
+
+.cf-action-center .cf-action-header::after {
+  display: none;
+}
+
+
+.cf-action-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.cf-action-refresh {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--panel);
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+
+.cf-action-refresh:hover:not(:disabled) {
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+
+
+.cf-action-refresh:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+
+/* ==========================================================
+   Scrollable Content
+========================================================== */
+
+.cf-action-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 30px 34px 52px;
+}
+
+
+.cf-action-content::-webkit-scrollbar {
+  width: 7px;
+}
+
+
+.cf-action-content::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--border-strong);
+}
+
+
+/* ==========================================================
+   Overview
+========================================================== */
+
+.cf-action-overview {
+  width: min(1180px, 100%);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 auto 30px;
+}
+
+
+.cf-action-stat {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+
+
+.cf-action-stat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--border-strong);
+}
+
+
+.cf-action-stat.pending::before {
+  background: #f59e0b;
+}
+
+
+.cf-action-stat.approved::before {
+  background: var(--success);
+}
+
+
+.cf-action-stat.rejected::before {
+  background: var(--danger);
+}
+
+
+.cf-action-stat span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+
+.cf-action-stat strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--text);
+  font-size: 34px;
+  line-height: 1;
+}
+
+
+.cf-action-stat small {
+  display: block;
+  margin-top: 9px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+
+/* ==========================================================
+   List Toolbar
+========================================================== */
+
+.cf-action-list-toolbar {
+  width: min(1180px, 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin: 0 auto 18px;
+}
+
+
+.cf-action-section-label {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+.cf-action-list-toolbar h2 {
+  margin: 5px 0 0;
+  color: var(--text);
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+
+.cf-action-filter-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-soft);
+}
+
+
+.cf-action-filter-tabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+.cf-action-filter-tabs button.active {
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+
+.cf-action-filter-tabs button span {
+  min-width: 20px;
+  height: 20px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 11px;
+}
+
+
+/* ==========================================================
+   Error
+========================================================== */
+
+.cf-action-error {
+  width: min(1180px, 100%);
+  display: grid;
+  gap: 3px;
+  margin: 0 auto 16px;
+  padding: 13px 15px;
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  border-radius: 14px;
+  background: rgba(239, 68, 68, 0.06);
+  color: var(--danger);
+}
+
+
+.cf-action-error strong {
+  font-size: 13px;
+}
+
+
+.cf-action-error span {
+  font-size: 13px;
+}
+
+
+/* ==========================================================
+   Cards
+========================================================== */
+
+.cf-action-list {
+  width: min(1180px, 100%);
+  display: grid;
+  gap: 14px;
+  margin: 0 auto;
+}
+
+
+.cf-action-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+
+
+.cf-action-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+
+.cf-action-type {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.cf-action-type-icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--primary-border);
+  border-radius: 13px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 18px;
+}
+
+
+.cf-action-type span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+
+.cf-action-type strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 750;
+}
+
+
+.cf-action-status {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+
+.cf-action-status.pending {
+  border-color: rgba(245, 158, 11, 0.28);
+  background: rgba(245, 158, 11, 0.09);
+  color: #d97706;
+}
+
+
+.cf-action-status.approved,
+.cf-action-status.completed {
+  border-color: rgba(24, 184, 122, 0.28);
+  background: rgba(24, 184, 122, 0.09);
+  color: var(--success);
+}
+
+
+.cf-action-status.rejected,
+.cf-action-status.failed {
+  border-color: rgba(239, 68, 68, 0.26);
+  background: rgba(239, 68, 68, 0.08);
+  color: var(--danger);
+}
+
+
+.cf-action-status.executing {
+  border-color: var(--primary-border);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+
+/* ==========================================================
+   Email Preview
+========================================================== */
+
+.cf-email-preview {
+  margin-top: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--panel-soft);
+}
+
+
+.cf-email-row {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 12px;
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+
+.cf-email-row span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+.cf-email-row strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-soft);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+
+.cf-email-body {
+  max-height: 190px;
+  overflow: auto;
+  padding: 14px;
+  white-space: pre-wrap;
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+
+.cf-action-json {
+  margin: 18px 0 0;
+  overflow-x: auto;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-soft);
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+.cf-action-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+
+.cf-action-note {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+
+.cf-action-note.approved {
+  border: 1px solid rgba(24, 184, 122, 0.22);
+  background: rgba(24, 184, 122, 0.07);
+  color: var(--success);
+}
+
+
+.cf-action-note.rejected {
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.06);
+  color: var(--danger);
+}
+
+
+/* ==========================================================
+   Card Actions
+========================================================== */
+
+.cf-action-card-actions,
+.cf-action-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+
+.cf-action-card-actions button,
+.cf-action-modal-actions button {
+  min-height: 40px;
+  padding: 9px 15px;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+
+.cf-action-card-actions button:disabled,
+.cf-action-modal-actions button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+
+.cf-action-card-actions .secondary,
+.cf-action-modal-actions .secondary {
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--text-soft);
+}
+
+
+.cf-action-card-actions .danger {
+  border: 1px solid rgba(239, 68, 68, 0.24);
+  background: rgba(239, 68, 68, 0.07);
+  color: var(--danger);
+}
+
+
+.cf-action-card-actions .primary,
+.cf-action-modal-actions .primary {
+  border: 1px solid var(--primary-border);
+  background: var(--primary);
+  color: #fff;
+}
+
+
+/* ==========================================================
+   Empty
+========================================================== */
+
+.cf-action-empty {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 58px 20px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 20px;
+  background: var(--panel-soft);
+  text-align: center;
+}
+
+
+.cf-action-empty-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 14px;
+  border: 1px solid var(--primary-border);
+  border-radius: 16px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 22px;
+}
+
+
+.cf-action-empty h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 22px;
+}
+
+
+.cf-action-empty p {
+  max-width: 480px;
+  margin: 8px auto 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================
+   Edit Modal
+========================================================== */
+
+.cf-action-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(6px);
+}
+
+
+.cf-action-modal {
+  width: min(620px, 100%);
+  max-height: min(760px, calc(100vh - 40px));
+  overflow-y: auto;
+  padding: 22px;
+  border: 1px solid var(--border-strong);
+  border-radius: 22px;
+  background: var(--glass-strong);
+  box-shadow: var(--shadow-lg);
+}
+
+
+.cf-action-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+
+.cf-action-modal-header span {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+
+.cf-action-modal-header h3 {
+  margin: 5px 0 0;
+  color: var(--text);
+  font-size: 26px;
+}
+
+
+.cf-action-modal-close {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+
+.cf-action-field {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+}
+
+
+.cf-action-field span {
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+
+.cf-action-field input,
+.cf-action-field textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+}
+
+
+.cf-action-field textarea {
+  resize: vertical;
+  line-height: 1.65;
+}
+
+
+.cf-action-field input:focus,
+.cf-action-field textarea:focus {
+  border-color: var(--primary-border);
+  box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+
+.cf-action-modal-info {
+  margin-top: 16px;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================
+   Responsive
+========================================================== */
+
+@media (max-width: 1050px) {
+
+  .cf-action-overview {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+}
+
+
+@media (max-width: 780px) {
+
+  .cf-action-center .cf-action-header {
+    min-height: 72px;
+    padding: 11px 12px;
+  }
+
+
+  .cf-action-header-tools {
+    gap: 7px;
+  }
+
+
+  .cf-action-refresh {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+
+  .cf-action-center .cf-theme-toggle {
+    padding: 4px;
+    gap: 3px;
+  }
+
+
+  .cf-action-center .cf-theme-toggle button {
+    min-width: 52px;
+    padding: 8px 9px;
+    font-size: 12px;
+  }
+
+
+  .cf-action-content {
+    padding: 16px 10px 34px;
+  }
+
+
+  .cf-action-overview {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    margin-bottom: 22px;
+  }
+
+
+  .cf-action-stat {
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+
+  .cf-action-stat strong {
+    font-size: 28px;
+  }
+
+
+  .cf-action-stat small {
+    font-size: 11px;
+  }
+
+
+  .cf-action-list-toolbar {
+    display: grid;
+    align-items: stretch;
+  }
+
+
+  .cf-action-filter-tabs {
+    width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+
+
+  .cf-action-filter-tabs button {
+    flex: 0 0 auto;
+  }
+
+
+  .cf-action-card {
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+
+  .cf-action-card-top {
+    align-items: flex-start;
+  }
+
+
+  .cf-action-type-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+  }
+
+
+  .cf-action-type strong {
+    font-size: 16px;
+  }
+
+
+  .cf-email-row {
+    grid-template-columns: 62px minmax(0, 1fr);
+  }
+
+
+  .cf-action-card-actions {
+    display: grid;
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  .cf-action-card-actions button {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+
+  .cf-action-modal-backdrop {
+    padding: 10px;
+  }
+
+
+  .cf-action-modal {
+    padding: 17px;
+    border-radius: 18px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .cf-action-overview {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+
+  .cf-action-stat {
+    padding: 13px;
+  }
+
+
+  .cf-action-stat strong {
+    font-size: 25px;
+  }
+
+
+  .cf-action-stat small {
+    display: none;
+  }
+
+
+  .cf-action-refresh {
+    display: none;
+  }
+
+
+  .cf-action-card-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+}

@@ -1,0 +1,45 @@
+# Environment / secrets
+.env
+.env.*
+*.env
+n8n.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/
+backend/.venv/
+.pytest_cache/
+
+# Node
+frontend/frontend/node_modules/
+frontend/frontend/dist/
+frontend/frontend/.vite/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads / local data
+backend/uploads/
+uploads/
+
+# Logs
+*.log
+
+# Local DB / temp
+*.sqlite3
+*.db
+tmp/
+temp/
+
+# Docker/local persistent data
+postgres_data/
+qdrant_data/
+n8n_data/
+

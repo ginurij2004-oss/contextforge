@@ -1,0 +1,1630 @@
+/* ==========================================================
+   ContextForge Phase 6 - Automation Builder
+========================================================== */
+
+.cf-automations-page .cf-sidebar {
+  overflow: hidden;
+}
+
+.cf-auto-workspace {
+  overflow: hidden;
+}
+
+.cf-auto-header {
+  position: relative;
+  inset: auto;
+  z-index: 20;
+  min-height: 112px;
+  transform: none;
+  transition: none;
+  box-shadow: none;
+}
+
+.cf-auto-header::after {
+  display: none;
+}
+
+.cf-auto-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cf-auto-primary,
+.cf-auto-secondary,
+.cf-auto-theme {
+  min-height: 44px;
+  border-radius: 13px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.cf-auto-primary {
+  padding: 10px 16px;
+  border: 1px solid var(--primary-border);
+  background: var(--primary);
+  color: white;
+}
+
+.cf-auto-primary:hover {
+  transform: translateY(-1px);
+}
+
+.cf-auto-secondary {
+  padding: 10px 15px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text-soft);
+}
+
+.cf-auto-secondary:hover {
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+
+.cf-auto-theme {
+  width: 44px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.cf-auto-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 30px 34px 56px;
+}
+
+.cf-auto-content::-webkit-scrollbar {
+  width: 7px;
+}
+
+.cf-auto-content::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--border-strong);
+}
+
+.cf-auto-alert {
+  width: min(1180px, 100%);
+  margin: 0 auto 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.cf-auto-alert.error {
+  border: 1px solid color-mix(in srgb, var(--danger) 36%, transparent);
+  background: color-mix(in srgb, var(--danger) 10%, var(--panel));
+  color: var(--danger);
+}
+
+.cf-auto-alert.success {
+  border: 1px solid color-mix(in srgb, var(--success) 34%, transparent);
+  background: color-mix(in srgb, var(--success) 8%, var(--panel));
+  color: var(--text);
+}
+
+.cf-auto-alert button {
+  flex-shrink: 0;
+  padding: 8px 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* ==========================================================
+   Sidebar helper
+========================================================== */
+
+.cf-auto-sidebar-card {
+  margin-top: 28px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-sidebar-card > span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.cf-auto-sidebar-card strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 15px;
+}
+
+.cf-auto-sidebar-card p {
+  margin: 8px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.cf-automations-page .cf-sidebar-footer {
+  margin-top: auto;
+}
+
+
+/* ==========================================================
+   Stats
+========================================================== */
+
+.cf-auto-stats {
+  width: min(1180px, 100%);
+  margin: 0 auto 28px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cf-auto-stats article {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+
+.cf-auto-stats article::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
+}
+
+.cf-auto-stats span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cf-auto-stats strong {
+  display: block;
+  margin-top: 10px;
+  color: var(--text);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.cf-auto-stats small {
+  display: block;
+  margin-top: 9px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+
+/* ==========================================================
+   Templates
+========================================================== */
+
+.cf-auto-templates {
+  width: min(1180px, 100%);
+  margin: 0 auto 28px;
+}
+
+.cf-auto-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.cf-auto-section-heading > div > span {
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cf-auto-section-heading h2 {
+  margin: 5px 0 0;
+  color: var(--text);
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.cf-auto-section-heading p {
+  max-width: 420px;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+  text-align: right;
+}
+
+.cf-auto-template-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cf-auto-template-grid button {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  color: var(--text);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.cf-auto-template-grid button:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary-border);
+  background: var(--panel-soft);
+}
+
+.cf-auto-template-grid b {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--primary-border);
+  border-radius: 13px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.cf-auto-template-grid strong {
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.cf-auto-template-grid span {
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   Tabs
+========================================================== */
+
+.cf-auto-tabs {
+  width: min(1180px, 100%);
+  margin: 0 auto 16px;
+  display: inline-flex;
+  gap: 6px;
+  padding: 5px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-tabs button {
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.cf-auto-tabs button.active {
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+
+/* ==========================================================
+   Automation cards
+========================================================== */
+
+.cf-auto-list,
+.cf-auto-history {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.cf-auto-list {
+  display: grid;
+  gap: 14px;
+}
+
+.cf-auto-card {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+
+.cf-auto-card-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--primary-border);
+  border-radius: 15px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 21px;
+}
+
+.cf-auto-card-main {
+  min-width: 0;
+}
+
+.cf-auto-card-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.cf-auto-card-title-row h3 {
+  margin: 9px 0 0;
+  color: var(--text);
+  font-size: 20px;
+  letter-spacing: -0.025em;
+}
+
+.cf-auto-card-title-row > small {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.cf-auto-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cf-auto-card-badges span {
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cf-auto-card-badges span.approval {
+  border-color: var(--primary-border);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.cf-auto-card-badges span.enabled {
+  border-color: color-mix(in srgb, var(--success) 35%, transparent);
+  color: var(--success);
+}
+
+.cf-auto-card-badges span.disabled {
+  border-color: color-mix(in srgb, var(--danger) 30%, transparent);
+  color: var(--danger);
+}
+
+.cf-auto-description {
+  margin: 10px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+
+.cf-auto-card-badges span.auto-execute {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+}
+
+.cf-auto-config-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-config-preview span {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cf-auto-config-preview strong {
+  overflow: hidden;
+  color: var(--text-soft);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cf-auto-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.cf-auto-card-actions button,
+.cf-auto-history-row button {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+  color: var(--text-soft);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.cf-auto-card-actions button.primary {
+  border-color: var(--primary-border);
+  background: var(--primary);
+  color: white;
+}
+
+.cf-auto-card-actions button.danger {
+  color: var(--danger);
+}
+
+.cf-auto-card-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* ==========================================================
+   History
+========================================================== */
+
+.cf-auto-history-table {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+
+.cf-auto-history-head,
+.cf-auto-history-row {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 1fr 1.2fr 0.8fr;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+}
+
+.cf-auto-history-head {
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cf-auto-history-row {
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+.cf-auto-history-row:last-child {
+  border-bottom: 0;
+}
+
+.cf-auto-history-row strong,
+.cf-auto-history-row small {
+  display: block;
+}
+
+.cf-auto-history-row strong {
+  color: var(--text);
+}
+
+.cf-auto-history-row small {
+  margin-top: 4px;
+  color: var(--text-muted);
+}
+
+.cf-auto-run-status {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: var(--panel-soft);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.cf-auto-run-status.pending_approval {
+  color: #f59e0b;
+}
+
+.cf-auto-run-status.approved,
+.cf-auto-run-status.executing {
+  color: var(--primary);
+}
+
+.cf-auto-run-status.completed {
+  color: var(--success);
+}
+
+.cf-auto-run-status.failed,
+.cf-auto-run-status.rejected {
+  color: var(--danger);
+}
+
+.cf-auto-history-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding-top: 2px;
+  color: var(--danger);
+  font-size: 11px;
+}
+
+.cf-auto-empty {
+  padding: 54px 24px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 18px;
+  background: var(--panel-soft);
+  text-align: center;
+}
+
+.cf-auto-empty > div {
+  color: var(--primary);
+  font-size: 34px;
+}
+
+.cf-auto-empty h3 {
+  margin: 12px 0 6px;
+  color: var(--text);
+}
+
+.cf-auto-empty p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+
+
+
+.cf-auto-modal-error {
+  margin: 14px 24px 0;
+  padding: 11px 13px;
+  border: 1px solid color-mix(in srgb, var(--danger) 36%, transparent);
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--danger) 10%, var(--panel));
+  color: var(--danger);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* ==========================================================
+   Modal / wizard
+========================================================== */
+
+.cf-auto-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.56);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.cf-auto-modal {
+  width: min(760px, 100%);
+  max-height: min(820px, calc(100vh - 48px));
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-strong);
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.3);
+}
+
+.cf-auto-modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cf-auto-modal-header span {
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cf-auto-modal-header h2 {
+  margin: 5px 0 0;
+  color: var(--text);
+  font-size: 24px;
+}
+
+.cf-auto-modal-header > button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cf-auto-wizard-progress {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--panel-soft);
+}
+
+.cf-auto-wizard-progress > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.cf-auto-wizard-progress b {
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.cf-auto-wizard-progress > div.active {
+  color: var(--text);
+}
+
+.cf-auto-wizard-progress > div.active b {
+  border-color: var(--primary-border);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.cf-auto-modal form {
+  min-height: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.cf-auto-modal-body {
+  min-height: 360px;
+  overflow-y: auto;
+  padding: 24px;
+}
+
+.cf-auto-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.cf-auto-form-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cf-auto-form-grid label.full {
+  grid-column: 1 / -1;
+}
+
+.cf-auto-form-grid label > span {
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.cf-auto-form-grid input,
+.cf-auto-form-grid textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.cf-auto-form-grid input {
+  min-height: 44px;
+  padding: 10px 12px;
+}
+
+.cf-auto-form-grid textarea {
+  min-height: 108px;
+  padding: 12px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.cf-auto-form-grid textarea.code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+}
+
+.cf-auto-form-grid input:focus,
+.cf-auto-form-grid textarea:focus {
+  border-color: var(--primary-border);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.cf-auto-form-grid input:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.cf-auto-form-grid small {
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.cf-auto-toggle-row {
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-toggle-row > div strong,
+.cf-auto-toggle-row > div span {
+  display: block;
+}
+
+.cf-auto-toggle-row > div strong {
+  color: var(--text);
+  font-size: 13px;
+}
+
+.cf-auto-toggle-row > div span {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.cf-auto-toggle-row input {
+  width: 18px;
+  min-height: auto;
+  height: 18px;
+}
+
+.cf-auto-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cf-auto-choice-grid button {
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel-soft);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cf-auto-choice-grid button.selected {
+  border-color: var(--primary-border);
+  background: var(--primary-soft);
+}
+
+.cf-auto-choice-grid button:disabled {
+  cursor: default;
+}
+
+.cf-auto-choice-grid b {
+  font-size: 22px;
+  color: var(--primary);
+}
+
+.cf-auto-choice-grid strong {
+  margin-top: 13px;
+}
+
+.cf-auto-choice-grid span {
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.cf-auto-locked-note {
+  margin-top: 14px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-locked-note strong,
+.cf-auto-locked-note span {
+  display: block;
+}
+
+.cf-auto-locked-note strong {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.cf-auto-locked-note span {
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.cf-auto-review {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cf-auto-review > div {
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-review > div.full {
+  grid-column: 1 / -1;
+}
+
+.cf-auto-review span,
+.cf-auto-review strong {
+  display: block;
+}
+
+.cf-auto-review span {
+  color: var(--text-muted);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.cf-auto-review strong {
+  margin-top: 6px;
+  color: var(--text);
+}
+
+.cf-auto-review p {
+  margin: 7px 0 0;
+  color: var(--text-soft);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.cf-auto-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--panel-soft);
+}
+
+.cf-auto-modal-footer button {
+  min-width: 104px;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: var(--panel);
+  color: var(--text-soft);
+  font: inherit;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.cf-auto-modal-footer button.primary {
+  border-color: var(--primary-border);
+  background: var(--primary);
+  color: white;
+}
+
+
+/* ==========================================================
+   Responsive
+========================================================== */
+
+@media (max-width: 1080px) {
+  .cf-auto-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cf-auto-template-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-history-head,
+  .cf-auto-history-row {
+    grid-template-columns: 1.4fr 0.8fr 1fr;
+  }
+
+  .cf-auto-history-head span:nth-child(4),
+  .cf-auto-history-head span:nth-child(5),
+  .cf-auto-history-row > span:nth-child(4),
+  .cf-auto-history-row > div:nth-child(5) {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .cf-auto-content {
+    padding: 20px 16px 40px;
+  }
+
+  .cf-auto-header {
+    min-height: auto;
+  }
+
+  .cf-auto-header-tools {
+    width: 100%;
+  }
+
+  .cf-auto-primary,
+  .cf-auto-secondary {
+    flex: 1;
+  }
+
+  .cf-auto-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cf-auto-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .cf-auto-section-heading p {
+    text-align: left;
+  }
+
+  .cf-auto-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-card-title-row {
+    flex-direction: column;
+  }
+
+  .cf-auto-card-actions button {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .cf-auto-modal-backdrop {
+    padding: 10px;
+  }
+
+  .cf-auto-modal {
+    max-height: calc(100vh - 20px);
+    border-radius: 16px;
+  }
+
+  .cf-auto-wizard-progress {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 12px;
+  }
+
+  .cf-auto-wizard-progress > div {
+    justify-content: center;
+  }
+
+  .cf-auto-wizard-progress span {
+    display: none;
+  }
+
+  .cf-auto-modal-body {
+    padding: 18px;
+  }
+
+  .cf-auto-form-grid,
+  .cf-auto-choice-grid,
+  .cf-auto-review {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-form-grid label.full,
+  .cf-auto-review > div.full {
+    grid-column: auto;
+  }
+
+  .cf-auto-history-head {
+    display: none;
+  }
+
+  .cf-auto-history-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+  }
+
+  .cf-auto-history-row > span:nth-child(4),
+  .cf-auto-history-row > div:nth-child(5) {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .cf-auto-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .cf-auto-stats article {
+    padding: 16px;
+  }
+
+  .cf-auto-stats strong {
+    font-size: 28px;
+  }
+
+  .cf-auto-tabs {
+    width: 100%;
+  }
+
+  .cf-auto-tabs button {
+    flex: 1;
+  }
+
+  .cf-auto-card-actions button {
+    flex-basis: 100%;
+  }
+}
+
+/* ==========================================================
+   Phase 7 - Scheduling
+========================================================== */
+
+.cf-auto-config-preview-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.cf-auto-config-preview-grid .cf-auto-config-preview {
+  margin-top: 0;
+}
+
+.cf-auto-config-preview.schedule strong {
+  color: var(--primary);
+}
+
+.cf-auto-trigger-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cf-auto-trigger-grid button {
+  min-height: 118px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--panel);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.cf-auto-trigger-grid button:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary-border);
+}
+
+.cf-auto-trigger-grid button.selected {
+  border-color: var(--primary-border);
+  background: var(--primary-soft);
+  box-shadow: var(--shadow-sm);
+}
+
+.cf-auto-trigger-grid strong,
+.cf-auto-trigger-grid span {
+  display: block;
+}
+
+.cf-auto-trigger-grid strong {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.cf-auto-trigger-grid span {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cf-auto-schedule-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-schedule-panel select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+}
+
+.cf-auto-safety-note {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--primary-border);
+  border-radius: 14px;
+  background: var(--primary-soft);
+}
+
+.cf-auto-safety-note strong {
+  display: block;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.cf-auto-safety-note p {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.cf-auto-upcoming-card {
+  width: min(1180px, 100%);
+  margin: 0 auto 12px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) minmax(260px, 0.6fr);
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+
+.cf-auto-upcoming-card h3 {
+  margin: 8px 0 0;
+  color: var(--text);
+  font-size: 18px;
+}
+
+.cf-auto-upcoming-card p {
+  margin: 7px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.cf-auto-upcoming-time {
+  padding-left: 18px;
+  border-left: 1px solid var(--border);
+}
+
+.cf-auto-upcoming-time span,
+.cf-auto-upcoming-time strong,
+.cf-auto-upcoming-time small {
+  display: block;
+}
+
+.cf-auto-upcoming-time span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cf-auto-upcoming-time strong {
+  margin-top: 7px;
+  color: var(--primary);
+  font-size: 15px;
+}
+
+.cf-auto-upcoming-time small {
+  margin-top: 7px;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.cf-auto-source {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cf-auto-source.schedule {
+  border-color: var(--primary-border);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
+.cf-phase7-history-row > div:nth-child(2) small {
+  display: block;
+  margin-top: 6px;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.cf-phase7-progress {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+@media (max-width: 980px) {
+  .cf-auto-trigger-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cf-auto-config-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-upcoming-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .cf-auto-upcoming-time {
+    grid-column: 2;
+    padding-left: 0;
+    padding-top: 12px;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+@media (max-width: 680px) {
+  .cf-auto-trigger-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-upcoming-card {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-upcoming-card .cf-auto-card-icon {
+    margin-bottom: -4px;
+  }
+
+  .cf-auto-upcoming-time {
+    grid-column: auto;
+  }
+
+  .cf-phase7-progress {
+    grid-template-columns: repeat(5, minmax(62px, 1fr));
+    overflow-x: auto;
+  }
+}
+
+
+.cf-auto-safety-note.auto {
+  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.cf-auto-safety-note.auto strong {
+  color: #10b981;
+}
+
+/* ==========================================================
+   One-time schedule: calendar + time dropdown
+========================================================== */
+
+.cf-auto-picker-wrap {
+  display: grid;
+  gap: 16px;
+}
+
+.cf-auto-picker-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.cf-auto-picker-heading strong,
+.cf-auto-picker-heading span,
+.cf-auto-picker-heading small {
+  display: block;
+}
+
+.cf-auto-picker-heading strong {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.cf-auto-picker-heading span {
+  margin-top: 5px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.cf-auto-picker-heading small {
+  flex-shrink: 0;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.cf-auto-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cf-auto-picker-field {
+  display: grid;
+  gap: 7px;
+}
+
+.cf-auto-picker-field > span {
+  color: var(--text-soft);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.cf-auto-picker-control {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--panel);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.cf-auto-picker-control:focus-within {
+  border-color: var(--primary-border);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.cf-auto-picker-icon {
+  width: 22px;
+  flex-shrink: 0;
+  color: var(--primary);
+  font-size: 17px;
+  text-align: center;
+}
+
+.cf-auto-date-input,
+.cf-auto-time-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  outline: none;
+  box-shadow: none !important;
+}
+
+.cf-auto-date-input {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] .cf-auto-date-input {
+  color-scheme: light;
+}
+
+.cf-auto-time-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 92px;
+  gap: 10px;
+}
+
+.cf-auto-time-entry-control {
+  min-width: 0;
+}
+
+.cf-auto-time-input {
+  letter-spacing: 0.01em;
+}
+
+.cf-auto-time-input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.cf-auto-meridiem-select {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 34px 0 14px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.cf-auto-meridiem-select:focus {
+  border-color: var(--primary-border);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+}
+
+.cf-auto-meridiem-select option {
+  background: var(--panel);
+  color: var(--text);
+}
+
+.cf-auto-picker-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-soft);
+}
+
+.cf-auto-picker-preview span {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.cf-auto-picker-preview strong {
+  color: var(--primary);
+  font-size: 13px;
+  text-align: right;
+}
+
+@media (max-width: 720px) {
+  .cf-auto-picker-heading,
+  .cf-auto-picker-preview {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cf-auto-picker-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cf-auto-picker-preview strong {
+    text-align: left;
+  }
+}
+
+
+
+@media (max-width: 560px) {
+  .cf-auto-time-row {
+    grid-template-columns: minmax(0, 1fr) 84px;
+  }
+}

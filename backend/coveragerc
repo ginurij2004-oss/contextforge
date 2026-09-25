@@ -1,0 +1,23 @@
+[run]
+source = app
+branch = True
+relative_files = True
+
+omit =
+    */tests/*
+    */__pycache__/*
+    */venv/*
+    */.venv/*
+
+[report]
+show_missing = True
+skip_empty = True
+precision = 1
+
+exclude_lines =
+    pragma: no cover
+    if TYPE_CHECKING:
+    if __name__ == .__main__.:
+
+[html]
+directory = htmlcov
