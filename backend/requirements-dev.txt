@@ -2,5 +2,3 @@ pytest>=9.0,<10.0
 pytest-asyncio>=1.0,<2.0
 pytest-cov>=7.0,<8.0
 httpx>=0.28,<1.0
-fastapi
-uvicorn[standard]
