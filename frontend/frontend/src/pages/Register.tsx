@@ -16,6 +16,9 @@ import {
   registerUser,
 } from "../services/auth";
 
+import AICompanion
+  from "../components/AICompanion";
+
 import "./Register.css";
 
 
@@ -214,7 +217,10 @@ export default function Register() {
 
           <div className="register-brand-icon">
 
-            C
+            <img
+              src="/contextforge-icon.png"
+              alt="ContextForge"
+            />
 
           </div>
 
@@ -292,6 +298,20 @@ export default function Register() {
       ================================================= */}
 
       <div className="register-layout">
+
+
+        {/* =================================================
+            AI Companion
+        ================================================= */}
+
+        <div className="register-ai-companion">
+
+          <AICompanion
+            variant="workspace"
+            label="ContextForge AI"
+          />
+
+        </div>
 
 
         {/* =================================================
@@ -476,7 +496,10 @@ export default function Register() {
 
               <div className="register-card-icon">
 
-                C
+                <img
+                  src="/contextforge-icon.png"
+                  alt=""
+                />
 
               </div>
 

@@ -15,9 +15,10 @@ from app.rag.embeddings import (
 # ==========================================================
 
 client = QdrantClient(
-    url=settings.QDRANT_URL
+    url=settings.QDRANT_URL,
+    api_key=settings.QDRANT_API_KEY or None,
+    timeout=20,
 )
-
 
 # ==========================================================
 # Retrieve Relevant Document Chunks

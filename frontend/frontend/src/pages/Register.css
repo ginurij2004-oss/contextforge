@@ -1183,3 +1183,143 @@
   }
 
 }
+
+
+/* ==========================================================
+   ContextForge Register - Brand + AI Companion Polish
+========================================================== */
+
+/* Use the real ContextForge mark on the registration page. */
+.register-brand-icon,
+.register-card-icon {
+  overflow: hidden;
+}
+
+.register-brand-icon img,
+.register-card-icon img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+/* Premium animated assistant placed between the hero and form. */
+.register-ai-companion {
+  position: absolute;
+  z-index: 7;
+  left: 50.5%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+}
+
+.register-ai-companion .cf-companion-workspace {
+  --cf-companion-size: 154px;
+  margin: 0;
+}
+
+.register-ai-companion .cf-companion-label {
+  bottom: -11%;
+  padding: 6px 10px;
+  font-size: 10px;
+}
+
+/* Keep the primary CTA highly visible in both themes. */
+.register-submit {
+  background:
+    linear-gradient(
+      135deg,
+      #7767ff 0%,
+      #5f50f4 100%
+    ) !important;
+
+  color: #ffffff !important;
+
+  box-shadow:
+    0 14px 40px
+    rgba(102, 82, 246, 0.27) !important;
+}
+
+.register-submit:hover:not(:disabled) {
+  background:
+    linear-gradient(
+      135deg,
+      #8375ff 0%,
+      #6655fb 100%
+    ) !important;
+
+  box-shadow:
+    0 18px 48px
+    rgba(102, 82, 246, 0.34) !important;
+}
+
+.register-submit:disabled {
+  cursor: not-allowed;
+  opacity: 1 !important;
+}
+
+/* The previous light-mode disabled state was too pale. */
+[data-theme="light"] .register-submit:disabled {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(119, 103, 255, 0.72) 0%,
+      rgba(95, 80, 244, 0.68) 100%
+    ) !important;
+
+  color:
+    rgba(255, 255, 255, 0.96) !important;
+
+  box-shadow:
+    0 12px 32px
+    rgba(102, 82, 246, 0.20) !important;
+}
+
+/* Dark mode keeps the CTA vivid without becoming too neon. */
+[data-theme="dark"] .register-submit,
+[data-theme="dark"] .register-submit:disabled {
+  background:
+    linear-gradient(
+      135deg,
+      #7464ff 0%,
+      #5c4df0 100%
+    ) !important;
+
+  color: #ffffff !important;
+}
+
+/* Give the existing background bubbles a slightly more premium glow. */
+[data-theme="light"] .register-bubble {
+  opacity: 0.78;
+  mix-blend-mode: multiply;
+}
+
+[data-theme="dark"] .register-bubble {
+  opacity: 0.72;
+  filter: saturate(1.08);
+}
+
+/* Keep the decorative assistant out of the way on tighter screens. */
+@media (max-width: 1280px) {
+  .register-ai-companion {
+    left: 50%;
+  }
+
+  .register-ai-companion .cf-companion-workspace {
+    --cf-companion-size: 136px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .register-ai-companion {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .register-bubble {
+    animation: none !important;
+  }
+}
